@@ -3,59 +3,57 @@ package Lab8_1;
 import java.util.Scanner;
 import java.lang.Math;
 
-public class Color_Dot {
+public class Color_Dot extends Point {
 
 	Scanner scan = new Scanner(System.in);
 
-    private Point point;
     private String color;
 
     public Color_Dot()
     {
-        this.point = new Point();
+    	this.SetX(0);
+        this.SetY(0);
         this.color = "";
     }
     public Color_Dot(int x, int y, String color)
     {
-        this.point = new Point(x, y);
+    	this.SetX(x);
+        this.SetY(y);
         this.color = color;
     }
     public Color_Dot(int x, String color)
     {
-        this.point = new Point(x, 0);
+    	this.SetX(x);
+        this.SetY(0);
         this.color = color;
     }
     public Color_Dot(String color, int y)
     {
-        this.point = new Point(0, y);
+    	this.SetX(0);
+        this.SetY(y);
         this.color = color;
     }
     public Color_Dot(String color)
     {
-        this.point = new Point(0, 0);
+    	this.SetX(0);
+        this.SetY(0);
         this.color = color;
     }
     public Color_Dot(int x, int y)
     {
-        this.point = new Point(x, y);
+    	this.SetX(x);
+        this.SetY(y);
         this.color = "";
     }
     public Color_Dot(Color_Dot c_d)
     {
-        this.point = c_d.point;
+    	this.SetX(c_d.GetX());
+        this.SetY(c_d.GetY());
         this.color = c_d.color;
-    }
-    public Point GetPoint()
-    {
-        return this.point;
     }
     public String GetColor()
     {
         return this.color;
-    }
-    public void SetPoint(Point value)
-    {
-        this.point = value;
     }
     public void SetColor(String value)
     {
@@ -70,14 +68,15 @@ public class Color_Dot {
     	System.out.println("point: ");
         System.out.println("x: ");
         int x = scan.nextInt();
+        this.SetX(x);
         System.out.println("y: ");
         int y = scan.nextInt();
-        this.point = new Point(x, y);
+        this.SetY(y);
         System.out.println("color: ");
         this.color = scan.next();
     }
     public String ToString()
     {
-        return "Color_Dot[" + "point: " + this.point.ToString() + " color: " + this.color + "]";
+        return "Color_Dot[" + "point: " + "[x: " + this.GetX() + " y: " + this.GetY() + "]" + " color: " + this.color + "]";
     }
 }
